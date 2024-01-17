@@ -45,7 +45,6 @@ function Friend({ friend }) {
     <li>
       <img src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
-
       {friend.balance < 0 && (
         <p className="red">
           You owe {friend.name} ${Math.abs(friend.balance)}
@@ -57,10 +56,27 @@ function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && (
-        <p className="red">You and ${friend.name} are even</p>
+        <p className="black">You and {friend.name} are even</p>
       )}
-
-      <button className="button">Select</button>
+      <Button>Select</Button>>
     </li>
+  );
+}
+
+function Button({ children }) {
+  return <button className="button">{children}</button>;
+}
+
+function FormAddFriend() {
+  return (
+    <form className="form-add-friend">
+      <label>Friend name</label>
+      <input type="text" />
+
+      <label>Image Url</label>
+      <input type="text" />
+
+      <Button>Add</Button>
+    </form>
   );
 }
